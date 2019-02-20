@@ -25,9 +25,10 @@ public class GoodsController {
     //http://localhost:8888/save
     @GetMapping("save")
     public String save() {
-        GoodsInfo goodsInfo = new GoodsInfo(System.currentTimeMillis(), "商品" + System.currentTimeMillis(), "这是一个测试商品");
+        long id = System.currentTimeMillis();
+        GoodsInfo goodsInfo = new GoodsInfo(id, "商品" + System.currentTimeMillis(), "这是一个测试商品");
         goodsRepository.save(goodsInfo);
-        return "success";
+        return "success,id:" + id;
     }
 
     //http://localhost:8888/delete?id=1525415333329
